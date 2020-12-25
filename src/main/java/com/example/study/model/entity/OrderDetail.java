@@ -6,26 +6,44 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity // order_detail
-@ToString(exclude = {"user","item"})
+//연관관계 공부용
+//@ToString(exclude = {"user","item"})
 public class OrderDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime orderAt;
+    private String status;
 
+    private LocalDateTime arrivalDate;
+
+    private Integer quantity;
+
+    private BigDecimal totalPrice;
+
+    private LocalDateTime createdAt;
+
+    private String createdBy;
+
+    private LocalDateTime updatedAt;
+
+    private String updatedBy;
+
+
+    //연관관계는 잠시 주석(연관관계는 공부용)
     //OrderDetail은 자신은 N이고 유저는 1이다 => N:1
-    @ManyToOne
-    private User user; // user_id
+//    @ManyToOne
+//    private User user; // user_id
 
     // N:1
-    @ManyToOne
-    private Item item;
+//    @ManyToOne
+//    private Item item;
 }

@@ -21,9 +21,17 @@ public class User {
 
     private String account;
 
+    private String password;
+
+    private String status;
+
     private String email;
 
     private String phoneNumber;
+
+    private LocalDateTime registeredAt;
+
+    private LocalDateTime unregisteredAt;
 
     private LocalDateTime createdAt;
 
@@ -34,6 +42,7 @@ public class User {
     private String updatedBy;
 
     // User 자신은 1이고 OderDetail은 N => 1:N
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<OrderDetail> orderDetailList;
+    //연관관계는 잠시 주석(연관관계는 공부용)
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+//    private List<OrderDetail> orderDetailList;
 }

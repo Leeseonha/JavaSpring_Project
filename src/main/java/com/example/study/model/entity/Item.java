@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -17,11 +18,29 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String status;
+
     private String name;
+
+    private String title;
+
+    private String content;
 
     private Integer price;
 
-    private String content;
+    private String brandName;
+
+    private LocalDateTime registeredAt;
+
+    private LocalDateTime unregisteredAt;
+
+    private LocalDateTime createdAt;
+
+    private String createdBy;
+
+    private LocalDateTime updatedAt;
+
+    private String updatedBy;
 
     // 1:N
     // LAZY = 지연로딩(메소드를 호출하지 않는 이상, 연관관계가 설정된 테이블에 대해서 셀렉트하지 않겠다) => 추천하는 타입은 LAZY
@@ -34,6 +53,7 @@ public class Item {
     // user_id = order_detail.user_id
     // where item.id = ?
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
-    private List<OrderDetail> orderDetailList;
+    //연관관계는 잠시 주석(연관관계는 공부용)
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
+//    private List<OrderDetail> orderDetailList;
 }
