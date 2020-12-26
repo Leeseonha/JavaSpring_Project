@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity // order_detail
+@ToString(exclude = {"orderGroup","item"})
 //연관관계 공부용
 //@ToString(exclude = {"user","item"})
 public class OrderDetail {
@@ -36,6 +37,15 @@ public class OrderDetail {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
+
+    // OrderDetail N : 1 Item
+    @ManyToOne
+    private Item item;
+
+    // OrderDetail N : 1 OrderGroup
+    @ManyToOne
+    private OrderGroup orderGroup;
+
 
 
     //연관관계는 잠시 주석(연관관계는 공부용)
