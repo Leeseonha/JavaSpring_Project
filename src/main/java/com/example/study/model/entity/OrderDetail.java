@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,6 +18,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity // order_detail
 @ToString(exclude = {"orderGroup","item"})
+@EntityListeners(AuditingEntityListener.class)
 //연관관계 공부용
 //@ToString(exclude = {"user","item"})
 public class OrderDetail {
@@ -30,12 +35,16 @@ public class OrderDetail {
 
     private BigDecimal totalPrice;
 
+    @CreatedDate
     private LocalDateTime createdAt;
 
+    @CreatedBy
     private String createdBy;
 
+    @LastModifiedBy
     private LocalDateTime updatedAt;
 
+    @LastModifiedBy
     private String updatedBy;
 
     // OrderDetail N : 1 Item
