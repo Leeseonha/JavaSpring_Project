@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class UserApiLogicService implements CrudInterface<UserApiRequest, UserApiResponse> {
@@ -44,7 +45,17 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
 
     @Override
     public Header<UserApiResponse> read(Long id) {
-        return null;
+
+        // id -> repository getOne, getById  : id를 가지고 repository를 통해 getOne또는 getById를 통해 테이터를 가져옴
+        Optional<User> optional = userRepository.findById(id);
+
+        // user -> userApiResponse return  :해당 데이터가 user를 가지고 오면 userApiResponse를 리턴해주면 끝
+        return optional
+                .map(user -> response(user))
+                .orElseGet(
+                        ()->Header.ERROR("데이터 없음")
+                );
+
     }
 
     @Override
