@@ -1,13 +1,15 @@
 package com.example.study.repository;
 
 import com.example.study.model.entity.User;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.awt.print.Pageable;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
+    Page<User> findAll(Pageable pageable);
 
 
     //쿼리메소드는 잠시 주석(공부용)
