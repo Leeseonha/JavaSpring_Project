@@ -185,7 +185,7 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
         UserOrderInfoApiResponse userOrderInfoApiResponse = UserOrderInfoApiResponse.builder()
                 .userApiResponse(userApiResponse)
                 .build();
-        
+
         return Header.OK(userOrderInfoApiResponse);
 
     }
