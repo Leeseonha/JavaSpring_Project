@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.time.LocalDateTime;
 
 @Entity
@@ -30,6 +31,7 @@ public class Person {
 
     private String hobby;
 
+    @NonNull
     private String bloodType;
 
     private String address;
@@ -40,6 +42,13 @@ public class Person {
 
     // @ToString.Exclude : 결과창에 개인정보라 로그에 남으면 안될 때 쓰면 결과창에 안보임
     private String phoneNumber;
+
+    @OneToOne
+    private Block block;
+
+    //Block.java만들었으니 주석처리 해도 됨
+//    private boolean block;
+
 
     // 밑에 코드 대신 @EqualsAndHashCode을 한줄 쓰면 됨
     // 같은지 비교하는 코드
