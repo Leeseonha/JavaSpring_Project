@@ -53,9 +53,4 @@
 - Java8
   - Stream
   - Fileter
-<<<<<<< HEAD
   - Map
-=======
-  - Map
-
->>>>>>> ab02699a8d7ef822f1dd5ff75ad97dbddbd460f9
