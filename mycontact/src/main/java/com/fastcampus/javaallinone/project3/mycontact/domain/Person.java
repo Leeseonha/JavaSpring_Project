@@ -3,6 +3,7 @@ package com.fastcampus.javaallinone.project3.mycontact.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -33,7 +34,7 @@ public class Person {
 
     private String address;
 
-    private LocalDateTime birthday;
+    private LocalDate birthday;
 
     private String job;
 
