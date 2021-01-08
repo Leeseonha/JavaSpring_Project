@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,9 +43,10 @@ public class PersonService {
 
     @Transactional(readOnly = true)
     public Person getPerson(Long id){
-        Person person = personRepository.findById(id).get();
+        Person person = personRepository.findById(id).orElse(null);
 
 //        System.out.println("person : "+ person); // System.out.보다는 log를 활용하는게 좋다
+
         log.info("person : {}", person);
 
         return person;
