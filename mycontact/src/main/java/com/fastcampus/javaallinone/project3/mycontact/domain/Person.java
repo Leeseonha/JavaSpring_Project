@@ -3,6 +3,8 @@ package com.fastcampus.javaallinone.project3.mycontact.domain;
 import com.fastcampus.javaallinone.project3.mycontact.controller.dto.PersonDto;
 import com.fastcampus.javaallinone.project3.mycontact.domain.dto.Birthday;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.Where;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
@@ -21,6 +23,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 //@EqualsAndHashCode
 @Data
+@Where(clause = "deleted = false")
 public class Person {
 
     @Id
@@ -51,8 +54,11 @@ public class Person {
 
     private String job;
 
-    // @ToString.Exclude : 결과창에 개인정보라 로그에 남으면 안될 때 쓰면 결과창에 안보임
+    @ToString.Exclude // : 결과창에 개인정보라 로그에 남으면 안될 때 쓰면 결과창에 안보임
     private String phoneNumber;
+
+    @ColumnDefault("0")
+    private boolean deleted;    // 삭제 여부를 가지고 있는 필드
 
 //    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
 //    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
