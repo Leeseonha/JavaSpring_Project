@@ -41,10 +41,10 @@ public class Person {
 
     private String hobby;
 
-    @NotEmpty
-    @NonNull
-    @Column(nullable = false)
-    private String bloodType;
+//    @NotEmpty
+//    @NonNull
+//    @Column(nullable = false)
+//    private String bloodType;
 
     private String address;
 
@@ -54,7 +54,7 @@ public class Person {
 
     private String job;
 
-    @ToString.Exclude // : 결과창에 개인정보라 로그에 남으면 안될 때 쓰면 결과창에 안보임
+    // @ToString.Exclude // : 결과창에 개인정보라 로그에 남으면 안될 때 쓰면 결과창에 안보임
     private String phoneNumber;
 
     @ColumnDefault("0")
@@ -62,17 +62,13 @@ public class Person {
 
 //    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
 //    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude
-    private Block block;
+//    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @ToString.Exclude
+//    private Block block;
 
     public void set(PersonDto personDto) {
         if (!StringUtils.isEmpty(personDto.getHobby())) {
             this.setHobby(personDto.getHobby());
-        }
-
-        if (!StringUtils.isEmpty(personDto.getBloodType())) {
-            this.setBloodType(personDto.getBloodType());
         }
 
         if (!StringUtils.isEmpty(personDto.getAddress())) {
@@ -85,6 +81,10 @@ public class Person {
 
         if (!StringUtils.isEmpty(personDto.getPhoneNumber())) {
             this.setPhoneNumber(personDto.getPhoneNumber());
+        }
+
+        if (personDto.getBirthday() != null) {
+            this.setBirthday(Birthday.of(personDto.getBirthday()));
         }
     }
 

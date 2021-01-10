@@ -27,7 +27,7 @@ class PersonRepositoryTest {
         Person person = new Person();
         person.setName("john");
 //        person.setAge(10);
-        person.setBloodType("A");
+//        person.setBloodType("A");
 
         personRepository.save(person);
 
@@ -38,19 +38,7 @@ class PersonRepositoryTest {
         assertThat(result.size()).isEqualTo(1);
         assertThat(result.get(0).getName()).isEqualTo("john");
 //        assertThat(result.get(0).getAge()).isEqualTo(10);
-        assertThat(result.get(0).getBloodType()).isEqualTo("A");
-
-    }
-
-    @Test
-    void findByBloodType(){
-
-        List<Person> result = personRepository.findByBloodType("A");
-
-//        result.forEach(System.out::println);
-        assertThat(result.size()).isEqualTo(2);
-        assertThat(result.get(0).getName()).isEqualTo("martin");
-        assertThat(result.get(1).getName()).isEqualTo("benny");
+//        assertThat(result.get(0).getBloodType()).isEqualTo("A");
 
     }
 
