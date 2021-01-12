@@ -1,7 +1,3 @@
----
-
----
-
 # JavaSpring_Project
 
 ## 스프링부트 공부
@@ -85,11 +81,40 @@
   
 - SpringMvc
   - @GetMapping
+  
+    ```
+    Get 메소드의 Http 요청을 받을 수 있는 메소드임을 명시하는 어노테이션이다.
+    - @PathVariable : Rest의 Url의 값을 읽어서 메소드의 파라미터로 매핑시킬 수 있도록 도와준다. {id}로 표기하면, 해당 위치에 들어오는 문자열을 id 파라미터에 할당해준다.
+    ```
+  
   - @PostMapping
+  
+    ```
+    Post 메소드의 Http 요청을 받을 수 있는 메소드임을 명시하는 어노테이션이다.
+    - @RequestBody : Request Body에 있는 데이터를 읽어서 파라미터로 매핑할 수 있도록 도와준다.
+    - @ResponseStatus : http 응답에 대한 코드값을 지정한 값으로 변경할 수 있다.
+    ```
+  
   - @PutMapping
+  
+    ```
+    Put 메소드의 Http 요청을 받을 수 있는 메소드임을 명시하는 어노테이션이다.
+    ```
+  
   - @PatchMapping
+  
+    ```
+    Patch 메소드의 Http 요청을 받을 수 있는 메소드임을 명시하는 어노테이션이다.
+    ```
+  
   - @DeleteMapping
+  
+    ```
+    Delete 메소드의 Http 요청을 받을 수 있는 메소드임을 명시하는 어노테이션이다.
+    ```
+  
   - @PathVariable
+  
   - @RequestBody
   
 - Lombok
