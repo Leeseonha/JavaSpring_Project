@@ -170,6 +170,25 @@
 
 - Mock
 
+  - verify
+
+    ```
+    Mock의 액션에 대해서 별도로 검증할 수 있다. 주로 return값이 없는 void 타입의 메소드나, 반복문을 테스트해야 하는 경우에 사용한다.
+    ```
+
+  - argThat
+
+    ```
+    ArgumentMatcher class를 이용해서 결과를 검증하겠다는 의미이다.
+    ```
+
+  - ArgumentMatcher
+
+    ```
+    테스트 결과값을 검증하는 matcher를 custom하게 개발할 수 있도록 제공하는 인터페이스이다.
+    - matches() : 해당 method를 override하여 값을 검증할 수 있다. 검증 후 결과를 boolean으로 리턴하여 테스트를 검증할 수 있도록 한다.
+    ```
+
 ```
 [Mock 테스트의 장점]
 : 테스트를 더 빠르게 실행할 수 있다.
