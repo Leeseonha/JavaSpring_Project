@@ -4,6 +4,8 @@ import com.fastcampus.javaallinone.project3.mycontact.controller.dto.PersonDto;
 //import com.fastcampus.javaallinone.project3.mycontact.domain.Block;
 import com.fastcampus.javaallinone.project3.mycontact.domain.Person;
 //import com.fastcampus.javaallinone.project3.mycontact.repository.BlockRepository;
+import com.fastcampus.javaallinone.project3.mycontact.exception.PersonNotFoundException;
+import com.fastcampus.javaallinone.project3.mycontact.exception.RenameIsNotPermittedException;
 import com.fastcampus.javaallinone.project3.mycontact.repository.PersonRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,10 +47,13 @@ public class PersonService {
 
     @Transactional
     public void modify(Long id, PersonDto personDto) {
-        Person person = personRepository.findById(id).orElseThrow(() -> new RuntimeException("아이디가 존재하지 않습니다."));
+//        Person person = personRepository.findById(id).orElseThrow(() -> new RuntimeException("아이디가 존재하지 않습니다."));
+
+        Person person = personRepository.findById(id).orElseThrow(PersonNotFoundException::new);
 
         if (!person.getName().equals(personDto.getName())) {
-            throw new RuntimeException("이름이 다릅니다.");
+//            throw new RuntimeException("이름이 다릅니다.");
+            throw new RenameIsNotPermittedException();
         }
 
         person.set(personDto);
@@ -58,7 +63,9 @@ public class PersonService {
 
     @Transactional
     public void modify(Long id, String name) {
-        Person person = personRepository.findById(id).orElseThrow(() -> new RuntimeException("아이디가 존재하지 않습니다."));
+//        Person person = personRepository.findById(id).orElseThrow(() -> new RuntimeException("아이디가 존재하지 않습니다."));
+
+        Person person = personRepository.findById(id).orElseThrow(PersonNotFoundException::new);
 
         person.setName(name);
 
@@ -69,7 +76,9 @@ public class PersonService {
     public void delete(Long id) {
 //        personRepository.deleteById(id);
 
-        Person person = personRepository.findById(id).orElseThrow(() -> new RuntimeException("아이디가 존재하지 않습니다."));
+//        Person person = personRepository.findById(id).orElseThrow(() -> new RuntimeException("아이디가 존재하지 않습니다."));
+
+        Person person = personRepository.findById(id).orElseThrow(PersonNotFoundException::new);
 
         person.setDeleted(true);
 
