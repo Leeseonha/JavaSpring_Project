@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.util.NestedServletException;
 
 import java.time.LocalDate;
@@ -33,8 +34,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Transactional
 class PersonControllerTest {
 
-    @Autowired
-    private PersonController personController;
+//    @Autowired
+//    private PersonController personController;
 
     @Autowired
     private PersonRepository personRepository;
@@ -43,16 +44,17 @@ class PersonControllerTest {
     private ObjectMapper objectMapper;
 
     @Autowired
-    private MappingJackson2HttpMessageConverter messageConverter;
+    private WebApplicationContext wac;
+
+//    @Autowired
+//    private MappingJackson2HttpMessageConverter messageConverter;
 
     private MockMvc mockMvc;
 
     @BeforeEach
     void beforeEach() {
-//        mockMvc = MockMvcBuilders.standaloneSetup(personController).setMessageConverters(messageConverter).build();
         mockMvc = MockMvcBuilders
-                .standaloneSetup(personController)
-                .setMessageConverters(messageConverter)
+                .webAppContextSetup(wac)
                 .alwaysDo(print())
                 .build();
     }
