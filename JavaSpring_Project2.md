@@ -5,7 +5,7 @@
 [ mycontact ]
 스프링 부트 프로젝트 (지인 정보 관리 시스템)
 
-- [JPA]: https://github.com/Leeseonha/JavaSpring_Project/commit/f824e875ebe6ea1c87eb33a77c9f4a3a4e1a8227	"JPA시작하기"
+- [<JPA]: https://github.com/Leeseonha/JavaSpring_Project/commit/f824e875ebe6ea1c87eb33a77c9f4a3a4e1a8227	"JPA시작하기>"
 
   ```
   @Entity : 해당 클래스가 Domain Entity로 사용할 것이라는 Annotation이다.
