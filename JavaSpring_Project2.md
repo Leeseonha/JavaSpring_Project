@@ -5,7 +5,9 @@
 [ mycontact ]
 스프링 부트 프로젝트 (지인 정보 관리 시스템)
 
-- [<JPA]: https://github.com/Leeseonha/JavaSpring_Project/commit/f824e875ebe6ea1c87eb33a77c9f4a3a4e1a8227	"JPA시작하기>"
+- JPA
+
+  [JPA시작하기](https://github.com/Leeseonha/JavaSpring_Project/commit/f824e875ebe6ea1c87eb33a77c9f4a3a4e1a8227)
 
   ```
   @Entity : 해당 클래스가 Domain Entity로 사용할 것이라는 Annotation이다.
@@ -13,7 +15,9 @@
   @GeneratedValue : 해당 컬럼의 값은 자동으로 생성되는 값임을 명시하는 것이다.
   ```
 
-- [Lombok1]: https://github.com/Leeseonha/JavaSpring_Project/commit/dce2bf261639a0d8a861d9cc79b14a816c68e147	"Lombok1"
+- [Lombo]: 
+
+  [Lombok1](https://github.com/Leeseonha/JavaSpring_Project/commit/dce2bf261639a0d8a861d9cc79b14a816c68e147)
 
   - @Getter
 
