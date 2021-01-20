@@ -232,15 +232,71 @@
 - Exception
 
   - [Exception-Handling1](https://github.com/Leeseonha/JavaSpring_Project/commit/af166786e575ff83d8cf01242f6fabae31d01160)
+
+    ```
+    Custom Exception
+    - 시스템의 오류와 분류하여 처리하기 위해 필요하다.
+    - 구체화된 테스트를 만들기 용이하다.
+    ```
+
   - [Exception-Handling2](https://github.com/Leeseonha/JavaSpring_Project/commit/2551540786a827360c27c153a978bbbeddb60b22)
+
+    - @ExceptionHandler
+
+      ```
+      Controller에서 발생하는 오류를 처리하여 필요한 로그를 남기고, 응답을 커스마이징할 수 있도록 지원한다.
+      ```
+
   - [Exception-Handling3](https://github.com/Leeseonha/JavaSpring_Project/commit/acd3df2e08c0e3b52095b4eaec37639709279971)
 
-- 
+    - 전역 예외처리
+
+      ```
+      @RestControllerAdvice와 @ExceptionHandler를 조합하여 전체 RestController의 예외에 대해서 처리할 수 있다.
+      ```
+
+    - @RestControllerAdvice
+
+      ```
+      RestController에 전역적으로 동작하는 AOP 어노테이션이다.
+      ```
+
+    - @ResponseStatus
+
+      ```
+      Controller에서 응답하는 Http Response Code를 지정할 수 있다.
+      ```
 
 - Validator
 
+  - [Parameter Validator](https://github.com/Leeseonha/JavaSpring_Project/commit/77ae5ab217b343cdb38bcbe79149421a3c6cb3f9)
+
+    - Parameter Validator란 : 내부 로직에서 처리할 수 없는 입력값을 사전에 검증하고, 필요한 오류 및 메시지로 매핑해서 응답하는 것이다.
+
+    - @NotEmpty
+
+      ```
+      해당 값이 null이거나 empty string("")에 대해서 검증하는 어노테이션이다.
+      <속성>
+      message : 해당 validation을 통과하지 못할 경우 표시할 오류 메시지이다.
+      ```
+
+    - @NotBlank
+
+      ```
+      해당 값이 null이거나 empty string("") 및 공백 문자열(" ")까지 검증하는 어노테이션이다.
+      ```
+
+    - @Valid
+
+      ```
+      일반적으로 validator는 해당 인자에 대해서만 검증하므로, 검증 대상이 객체이면 recursive하게 검증할 수 있도록 표시해주는 어노테이션이다.
+      ```
+
 - Paging
 
-- 
-
-- 
+  - [List-Api and Paging](https://github.com/Leeseonha/JavaSpring_Project/commit/b237b7401f4065f66cc80fb997e65faae61dd031)
+    - Pageable : JPA에서 정의한 Paging을 위한 인터페이스이다.
+      - 속성 : content , totalPages , totalElements , numberOfElements
+    - PageRequest : Pageable 인터페이스를 구현한 구현체이다.
+    - @PageableDefault : API에서 페이징을 위한 파라미터가 존재하지 않을 때, 페이징을 위한 기본값을 제공한다.
