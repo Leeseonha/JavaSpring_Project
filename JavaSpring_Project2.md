@@ -1,4 +1,4 @@
-# JavaSpring_Project
+# JavaSpring_Project2
 
 ## 스프링부트 공부
 
