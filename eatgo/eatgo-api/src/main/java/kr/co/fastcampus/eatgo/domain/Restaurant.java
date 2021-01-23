@@ -25,6 +25,6 @@ public class Restaurant {
     }
 
     public String  getInformation() {
-        return name + "in " + address;
+        return name + " in " + address;
     }
 }

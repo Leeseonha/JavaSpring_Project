@@ -1,7 +1,8 @@
 package kr.co.fastcampus.eatgo.domain;
 
 import org.hamcrest.Matcher;
-import org.junit.Test;
+//import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;

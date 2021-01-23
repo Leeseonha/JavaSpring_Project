@@ -1,6 +1,7 @@
 package kr.co.fastcampus.eatgo.interfaces;
 
-import org.junit.Test;
+//import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -31,6 +32,26 @@ public class RestaurantControllerTest {
                         containsString("\"name\":\"Bob zip\"")
                 ));
 
+    }
+
+    @Test
+    public void detail() throws Exception {
+        mvc.perform(get("/restaurants/1004"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(
+                        containsString("\"id\":1004")
+                ))
+                .andExpect(content().string(
+                        containsString("\"name\":\"Bob zip\"")
+                ));
+        mvc.perform(get("/restaurants/2020"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(
+                        containsString("\"id\":2020")
+                ))
+                .andExpect(content().string(
+                        containsString("\"name\":\"Cyber Food\"")
+                ));
     }
 
 }
