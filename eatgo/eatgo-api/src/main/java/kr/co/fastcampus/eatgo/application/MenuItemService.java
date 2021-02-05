@@ -12,17 +12,26 @@ import java.util.List;
 @Service
 public class MenuItemService {
 
-    private MenuItemRepository munuItemRepository;
+    private MenuItemRepository menuItemRepository;
 
     @Autowired
     public MenuItemService(MenuItemRepository menuItemRepository){
-        this.munuItemRepository = menuItemRepository;
+        this.menuItemRepository = menuItemRepository;
     }
 
     public void bulkUpdate(Long restaurantId, List<MenuItem> menuItems) {
         for (MenuItem menuItem : menuItems){
-            menuItem.setRestaurantId(restaurantId);
-            munuItemRepository.save(menuItem);
+            update(restaurantId, menuItem);
         }
+    }
+
+    public void update(Long restaurantId, MenuItem menuItem){
+        if(menuItem.isDestroy()){
+            menuItemRepository.deleteById(menuItem.getId());
+            return;
+        }
+
+        menuItem.setRestaurantId(restaurantId);
+        menuItemRepository.save(menuItem);
     }
 }
