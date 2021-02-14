@@ -43,13 +43,4 @@ public class RegionServiceTests {
         assertThat(region.getName(), is("Seoul"));
     }
 
-    @Test
-    public void addRegion(){
-        Region region = regionService.addRegion("Seoul");
-
-        verify(regionRepository).save(any());
-
-        assertThat(region.getName(), is("Seoul"));
-    }
-
 }
