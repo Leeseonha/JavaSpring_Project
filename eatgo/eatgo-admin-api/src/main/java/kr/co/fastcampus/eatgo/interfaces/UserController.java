@@ -46,6 +46,13 @@ public class UserController {
         return "{}";
     }
 
+    @DeleteMapping("/users/{id}")
+    public String delete(@PathVariable("id") Long id){
+        userService.deactiveUser(id);
+
+        return "{}";
+    }
+
     // 1. User list
     // 2. User create -> 회원가입
     // 3. User update

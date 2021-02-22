@@ -17,6 +17,12 @@ public class UserTests {
 
         assertThat(user.getName(), is("Tester"));
         assertThat(user.isAdmin(), is(true));
+        assertThat(user.isActive(), is(true));
+
+        user.deativate();
+
+        assertThat(user.isActive(), is(false));
+
     }
 
 }
