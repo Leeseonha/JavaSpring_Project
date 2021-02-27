@@ -1,7 +1,8 @@
 package kr.co.fastcampus.eatgo.interfaces;
 
+import kr.co.fastcampus.eatgo.application.EmailNotExistedException;
+import kr.co.fastcampus.eatgo.application.PasswordWrongException;
 import kr.co.fastcampus.eatgo.application.UserService;
-import kr.co.fastcampus.eatgo.domain.User;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.hamcrest.core.Is.is;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
@@ -33,7 +32,7 @@ public class SessionControllerTests {
     private UserService userService;
 
     @Test
-    public void create() throws Exception {
+    public void createWithValidAttributes() throws Exception {
         mvc.perform(post("/session")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"email\":\"tester@example.com\",\"password\":\"test\"}"))
@@ -42,6 +41,32 @@ public class SessionControllerTests {
                 .andExpect(content().string("{\"accessToken\":\"ACCESSTOKEN\"}"));
 
         verify(userService).authenticate(eq("tester@example.com"), eq("test"));
+    }
+
+    @Test
+    public void createWithNotExistedEmail() throws Exception {
+        given(userService.authenticate("x@example.com", "test"))
+                .willThrow(EmailNotExistedException.class);
+
+        mvc.perform(post("/session")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"email\":\"x@example.com\",\"password\":\"test\"}"))
+                .andExpect(status().isBadRequest());
+
+        verify(userService).authenticate(eq("x@example.com"), eq("test"));
+    }
+
+    @Test
+    public void createWithWrongPassword() throws Exception {
+        given(userService.authenticate("tester@example.com", "x"))
+                .willThrow(PasswordWrongException.class);
+
+        mvc.perform(post("/session")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"email\":\"tester@example.com\",\"password\":\"x\"}"))
+                .andExpect(status().isBadRequest());
+
+        verify(userService).authenticate(eq("tester@example.com"), eq("x"));
     }
 
 }
