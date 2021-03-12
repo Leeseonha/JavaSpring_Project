@@ -287,3 +287,18 @@
     - Front-end까지 같이 작업
     - h2데이터베이스를 사용했는데 여기에서 파일을 사용하여 동시에 여러개의 API를 띠울수없어서 MySQL 등 기존의 RDBMS를 활용하여 디비 서버 구축
   
+
+## 
+
+## 개발 총 정리
+
+- REST API를 사용하여 CRUD를 HTTP메소드를 이용하여 각 기능들 매핑하였다.
+- Spring Initializr를 이용하여 스프링부트 프로젝트를 진행하였다.
+  - 필요한 의존성을 직접 선택할 수 있고, 또는 나중에 추가할 수 있는 작업을 진행하였다.
+- Multi-Project
+- 개발하는 모든 과정을 TDD로 진행하였다. 
+- Layered Architecture
+  1. Controller First
+  2. Service & Domain
+- JPA
+- JWT
