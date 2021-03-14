@@ -22,4 +22,25 @@
 
 
 
-- Lombok
+- [Lombok](https://github.com/Leeseonha/JavaSpring_Project/commit/82a923f278b50e8157e0f5cbc7ecefe7c010f2a8)
+
+  - ```
+    [build.gradle에 추가]
+    compile 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    ```
+
+- JPA(Java Persistent API)
+
+  - ORM(Object Relational Mapping)으로, RDB 데이터베이스의 정보를 객체지향으로 손쉽게 활용할 수 있도록 도와주는 도구이다.
+
+  - Object(자바객체)와 Relation(관계형 데이터베이스) 둘간의 매핑을 통해서 보다 손쉽게 적용할 수 있는 기술을 제공해준다.
+
+  - ```
+    [build.gradle에 추가]
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('mysql:mysql-connector-java')
+    ```
+
+- Entity 생성과 Repository
+
