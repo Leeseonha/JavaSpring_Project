@@ -42,5 +42,16 @@
     compile('mysql:mysql-connector-java')
     ```
 
-- Entity 생성과 Repository
+- [Entity 생성과 Repository, 연관관계 설정](https://github.com/Leeseonha/JavaSpring_Project/commit/0b32983fc8852e1ea46191f331d677b117b3788f)
+
+  - JPA 연관관계 설정 배우기
+
+  | 관계   | Annotation  |
+  | ------ | ----------- |
+  | 일대일 | @OneToOne   |
+  | 일대다 | @OneToMany  |
+  | 다대일 | @ManyToOne  |
+  | 다대다 | @ManyToMany |
+
+- 
 
