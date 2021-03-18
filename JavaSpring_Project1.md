@@ -4,6 +4,18 @@
 
 [ study1 ] 스프링 부트 프로젝트 (어드민페이지 만들기)
 
+
+
+<서비스 기획자와 일하기>
+
+1. 서비스 기획
+2. 사용자의 Flow 및 전체적인 서비스 안내
+3. DB ERD 기초 설계, 서비스의 방향
+4. 내부 Flow 및 서비스 필수 기능 정의
+5. 어드민 설계
+
+
+
 - [HTTP Method](https://github.com/Leeseonha/JavaSpring_Project/commit/9b6b348d2541a0155f922f02fb6de6bba4416434)
   - GetController.java에 35번째줄 return "OK";가 아니고 return searchParam;이 맞는 방식
 - [POST](https://github.com/Leeseonha/JavaSpring_Project/commit/ace583a74f7b063be670aac2082f2a0a26b3a05f)
