@@ -65,5 +65,10 @@
   | 다대일 | @ManyToOne  |
   | 다대다 | @ManyToMany |
 
+- 개발시작_Entity 및 Repository 설정
+
+  - [JPA 연관관계 설정:QueryMethod , Entity 및 Repository 설정](https://github.com/Leeseonha/JavaSpring_Project/commit/02d52d4fe11b61ef592b6968c335881fc1929842)
+  - [Entity 및 Repository 설정 완료](https://github.com/Leeseonha/JavaSpring_Project/commit/691b8274eba4305052207a591461b5094d6960a8)
+
 - 
 
