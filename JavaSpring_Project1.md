@@ -70,5 +70,10 @@
   - [JPA 연관관계 설정:QueryMethod , Entity 및 Repository 설정](https://github.com/Leeseonha/JavaSpring_Project/commit/02d52d4fe11b61ef592b6968c335881fc1929842)
   - [Entity 및 Repository 설정 완료](https://github.com/Leeseonha/JavaSpring_Project/commit/691b8274eba4305052207a591461b5094d6960a8)
 
-- 
+- 연관관계 설정
+
+  - [연관관계 설정](https://github.com/Leeseonha/JavaSpring_Project/commit/4490c1ec4c205381f2f217f627e8986776b97f39)
+  - [연관관계 설정 - JPA 다시설정](https://github.com/Leeseonha/JavaSpring_Project/commit/5e041e6f700293ee9288433dc0ef33b9e248d772)
+
+- JPA의 추가 기능
 
